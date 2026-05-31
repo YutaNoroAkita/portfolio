@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YOUR NAME | 小規模事業所専門 Webサイト制作</title>
+  <meta name="description" content="地域の小規模事業所・個人事業主向けに、集客につながるホームページ制作をお手伝いします。">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --blue:    #2563eb;
+      --blue-lt: #eff6ff;
+      --navy:    #1e3a5f;
+      --gray:    #64748b;
+      --border:  #e2e8f0;
+    }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: #1e293b;
+      scroll-behavior: smooth;
+    }
+    .serif { font-family: 'Noto Serif JP', serif; }
+
+    .hero-bg {
+      background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 60%, #60a5fa 100%);
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: .7rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--blue);
+      font-weight: 700;
+      border-bottom: 2px solid var(--blue);
+      padding-bottom: 2px;
+      margin-bottom: 1rem;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .card:hover {
+      box-shadow: 0 8px 30px rgba(37,99,235,.12);
+      transform: translateY(-3px);
+    }
+
+    .svc-icon {
+      width: 56px; height: 56px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      background: var(--blue-lt);
+      color: var(--blue);
+      margin-bottom: 1rem;
+    }
+
+    .step-line { position: relative; }
+    .step-line::before {
+      content: '';
+      position: absolute;
+      left: 27px; top: 56px; bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+    .step-line:last-child::before { display: none; }
+
+    .price-badge {
+      background: var(--blue-lt);
+      color: var(--blue);
+      font-size: .75rem;
+      font-weight: 700;
+      padding: .25rem .75rem;
+      border-radius: 999px;
+    }
+
+    #mobile-nav { display: none; }
+    #mobile-nav.open { display: flex; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+
+<!-- ===== HEADER ===== -->
+<header class="fixed w-full z-50 bg-white/95 backdrop-blur border-b border-gray-200 shadow-sm">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="#" class="text-lg font-bold text-blue-700" aria-label="ホームへ">YOUR NAME</a>
+
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600" aria-label="メインナビ">
+      <a href="#about"   class="hover:text-blue-600 transition-colors">About</a>
+      <a href="#service" class="hover:text-blue-600 transition-colors">Service</a>
+      <a href="#works"   class="hover:text-blue-600 transition-colors">Works</a>
+      <a href="#flow"    class="hover:text-blue-600 transition-colors">Flow</a>
+      <a href="#price"   class="hover:text-blue-600 transition-colors">Price</a>
+      <a href="#contact" class="px-5 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors">Contact</a>
+    </nav>
+
+    <button id="nav-toggle" class="md:hidden p-2 rounded text-gray-600 hover:text-blue-600"
+      aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-nav">
+      <i class="fa-solid fa-bars text-xl" aria-hidden="true"></i>
+    </button>
+  </div>
+
+  <div id="mobile-nav" class="flex-col bg-white border-t border-gray-100 px-6 py-4 gap-4 text-sm font-medium text-gray-700" aria-hidden="true">
+    <a href="#about"   data-nav class="hover:text-blue-600">About</a>
+    <a href="#service" data-nav class="hover:text-blue-600">Service</a>
+    <a href="#works"   data-nav class="hover:text-blue-600">Works</a>
+    <a href="#flow"    data-nav class="hover:text-blue-600">Flow</a>
+    <a href="#price"   data-nav class="hover:text-blue-600">Price</a>
+    <a href="#contact" data-nav class="text-blue-600 font-bold">Contact</a>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ===== HERO ===== -->
+<section class="hero-bg min-h-screen flex items-center justify-center text-white px-6 pt-16" aria-labelledby="hero-h1">
+  <div class="max-w-3xl text-center">
+    <p class="text-blue-200 text-sm tracking-widest uppercase mb-6 font-medium">Web Design &amp; Development</p>
+    <h1 id="hero-h1" class="serif text-4xl md:text-6xl font-bold leading-tight mb-8">
+      地域のお店に、<br>ちゃんと伝わる<br class="md:hidden">ホームページを。
+    </h1>
+    <p class="text-blue-100 text-base md:text-lg leading-relaxed mb-10 max-w-xl mx-auto">
+      小規模事業所・個人事業主の方が抱える<br>「集客できるサイトが欲しい」を、丁寧にカタチにします。
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#contact" class="px-8 py-4 bg-white text-blue-700 font-bold rounded-full hover:bg-blue-50 transition-colors text-sm">無料相談はこちら</a>
+      <a href="#works"   class="px-8 py-4 border border-white/50 text-white font-medium rounded-full hover:bg-white/10 transition-colors text-sm">制作実績を見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section class="bg-white py-16 border-b border-gray-100">
+  <div class="max-w-5xl mx-auto px-6 grid sm:grid-cols-3 gap-8 text-center">
+    <div>
+      <div class="text-4xl font-bold text-blue-600 mb-2">¥55,000〜</div>
+      <p class="text-sm text-gray-500 font-medium">シンプルな5ページ構成から</p>
+    </div>
+    <div>
+      <div class="text-4xl font-bold text-blue-600 mb-2">最短2週間</div>
+      <p class="text-sm text-gray-500 font-medium">ヒアリングから公開まで</p>
+    </div>
+    <div>
+      <div class="text-4xl font-bold text-blue-600 mb-2">公開後も安心</div>
+      <p class="text-sm text-gray-500 font-medium">運用サポート・更新代行あり</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="py-24 max-w-5xl mx-auto px-6" aria-labelledby="about-h">
+  <div class="grid md:grid-cols-2 gap-16 items-center">
+    <div>
+      <span class="section-label">About</span>
+      <h2 id="about-h" class="serif text-3xl md:text-4xl font-bold leading-snug mb-6">はじめまして。<br>YOUR NAME です。</h2>
+      <p class="text-gray-600 leading-relaxed mb-4">
+        地域に根ざした小規模事業所や個人事業主の方が、インターネットを通じてもっと多くのお客様に出会えるよう、Webサイト制作のお手伝いをしています。
+      </p>
+      <p class="text-gray-600 leading-relaxed mb-4">
+        「IT が苦手でも安心して任せられる」をモットーに、ヒアリングから公開・運用まで一貫してサポートします。
+      </p>
+      <ul class="mt-6 space-y-2 text-sm text-gray-700">
+        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-blue-500"></i>飲食・美容・整体・教室など業種問わず対応</li>
+        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-blue-500"></i>スマートフォン対応（レスポンシブ）標準対応</li>
+        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-blue-500"></i>SEO・Google マップ連携もサポート</li>
+        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-blue-500"></i>公開後の修正・更新もお気軽に相談可能</li>
+      </ul>
+    </div>
+    <div class="flex justify-center">
+      <div class="w-64 h-64 rounded-3xl bg-blue-100 flex items-center justify-center text-blue-300">
+        <i class="fa-solid fa-user text-7xl" aria-hidden="true"></i>
+        <!-- ↑ プロフィール写真に差し替えてください -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICE ===== -->
+<section id="service" class="py-24 bg-gray-50 border-y border-gray-100" aria-labelledby="svc-h">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="section-label">Service</span>
+      <h2 id="svc-h" class="serif text-3xl md:text-4xl font-bold mt-2">サービス内容</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <article class="card p-8">
+        <div class="svc-icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></div>
+        <h3 class="font-bold text-lg mb-3">ホームページ制作</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">お店・事務所の魅力が伝わるWebサイトを制作。スマホ対応・問い合わせフォームも標準装備です。</p>
+      </article>
+
+      <article class="card p-8">
+        <div class="svc-icon"><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i></div>
+        <h3 class="font-bold text-lg mb-3">SEO・集客対策</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">Googleで上位表示されやすい構造を意識した制作。Googleビジネスプロフィールの設定もサポートします。</p>
+      </article>
+
+      <article class="card p-8">
+        <div class="svc-icon"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i></div>
+        <h3 class="font-bold text-lg mb-3">リニューアル・改修</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">既存サイトのスマホ対応化やデザイン刷新、特定ページの追加・修正など部分的なご依頼もOKです。</p>
+      </article>
+
+      <article class="card p-8">
+        <div class="svc-icon"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i></div>
+        <h3 class="font-bold text-lg mb-3">ネットショップ構築</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">BASEやShopifyを使った低コストのオンラインショップ開設をサポート。商品登録のご支援も承ります。</p>
+      </article>
+
+      <article class="card p-8">
+        <div class="svc-icon"><i class="fa-solid fa-wrench" aria-hidden="true"></i></div>
+        <h3 class="font-bold text-lg mb-3">運用・保守サポート</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">月額定額でサイトの更新代行・セキュリティ管理をお任せいただけます。忙しいオーナー様に好評です。</p>
+      </article>
+
+      <article class="card p-8">
+        <div class="svc-icon"><i class="fa-solid fa-comments" aria-hidden="true"></i></div>
+        <h3 class="font-bold text-lg mb-3">無料相談</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">「何から始めればいいかわからない」という方も歓迎。オンライン・対面どちらでも対応します。</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== WORKS ===== -->
+<section id="works" class="py-24 max-w-5xl mx-auto px-6" aria-labelledby="works-h">
+  <div class="text-center mb-16">
+    <span class="section-label">Works</span>
+    <h2 id="works-h" class="serif text-3xl md:text-4xl font-bold mt-2">制作実績</h2>
+    <p class="text-sm text-gray-500 mt-3">※ 掲載は許可をいただいた案件のみです</p>
+  </div>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+    <article class="card overflow-hidden group">
+      <div class="h-44 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center text-blue-400 group-hover:from-blue-200 group-hover:to-blue-300 transition-colors">
+        <i class="fa-solid fa-scissors text-4xl" aria-hidden="true"></i>
+      </div>
+      <div class="p-6">
+        <span class="price-badge mb-3 inline-block">美容室</span>
+        <h3 class="font-bold mb-1">〇〇ヘアサロン 様</h3>
+        <p class="text-sm text-gray-500">新規集客のためのホームページ制作・Instagram連携</p>
+      </div>
+    </article>
+
+    <article class="card overflow-hidden group">
+      <div class="h-44 bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center text-green-400 group-hover:from-green-200 group-hover:to-green-300 transition-colors">
+        <i class="fa-solid fa-utensils text-4xl" aria-hidden="true"></i>
+      </div>
+      <div class="p-6">
+        <span class="price-badge mb-3 inline-block">飲食店</span>
+        <h3 class="font-bold mb-1">〇〇食堂 様</h3>
+        <p class="text-sm text-gray-500">メニュー・営業時間の管理がしやすいWordPressサイト</p>
+      </div>
+    </article>
+
+    <article class="card overflow-hidden group">
+      <div class="h-44 bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center text-purple-400 group-hover:from-purple-200 group-hover:to-purple-300 transition-colors">
+        <i class="fa-solid fa-spa text-4xl" aria-hidden="true"></i>
+      </div>
+      <div class="p-6">
+        <span class="price-badge mb-3 inline-block">整体院</span>
+        <h3 class="font-bold mb-1">〇〇整体院 様</h3>
+        <p class="text-sm text-gray-500">Googleマップ連携・予約フォーム設置</p>
+      </div>
+    </article>
+
+  </div>
+  <p class="text-center text-sm text-gray-400 mt-10">※ 実績は順次追加予定。サンプルはご要望に応じてお見せします。</p>
+</section>
+
+<!-- ===== FLOW ===== -->
+<section id="flow" class="py-24 bg-blue-50 border-y border-blue-100" aria-labelledby="flow-h">
+  <div class="max-w-2xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="section-label">Flow</span>
+      <h2 id="flow-h" class="serif text-3xl md:text-4xl font-bold mt-2">制作の流れ</h2>
+    </div>
+    <ol class="space-y-0 list-none p-0">
+
+      <li class="step-line flex gap-6 pb-10">
+        <div class="flex-shrink-0 w-14 h-14 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg">01</div>
+        <div class="pt-3">
+          <h3 class="font-bold text-lg mb-1">無料ヒアリング</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">目的・ターゲット・ご予算をお聞きします。オンラインでも対面でも対応可能です。</p>
+        </div>
+      </li>
+
+      <li class="step-line flex gap-6 pb-10">
+        <div class="flex-shrink-0 w-14 h-14 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg">02</div>
+        <div class="pt-3">
+          <h3 class="font-bold text-lg mb-1">お見積もり・ご契約</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">内容を整理した上で明確なお見積もりをご提示。ご納得いただいてからご契約します。</p>
+        </div>
+      </li>
+
+      <li class="step-line flex gap-6 pb-10">
+        <div class="flex-shrink-0 w-14 h-14 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg">03</div>
+        <div class="pt-3">
+          <h3 class="font-bold text-lg mb-1">デザイン・制作</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">デザイン案をご確認いただきながら進めます。修正は2回まで無料対応です。</p>
+        </div>
+      </li>
+
+      <li class="step-line flex gap-6 pb-10">
+        <div class="flex-shrink-0 w-14 h-14 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg">04</div>
+        <div class="pt-3">
+          <h3 class="font-bold text-lg mb-1">テスト公開・確認</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">本番環境での最終確認をお願いします。スマホ・PCの両方でチェックします。</p>
+        </div>
+      </li>
+
+      <li class="flex gap-6">
+        <div class="flex-shrink-0 w-14 h-14 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg">05</div>
+        <div class="pt-3">
+          <h3 class="font-bold text-lg mb-1">公開・アフターサポート</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">公開後も更新サポートや操作レクチャーをご提供。長くお付き合いできる関係を大切にしています。</p>
+        </div>
+      </li>
+
+    </ol>
+  </div>
+</section>
+
+<!-- ===== PRICE ===== -->
+<section id="price" class="py-24 max-w-5xl mx-auto px-6" aria-labelledby="price-h">
+  <div class="text-center mb-16">
+    <span class="section-label">Price</span>
+    <h2 id="price-h" class="serif text-3xl md:text-4xl font-bold mt-2">料金プラン</h2>
+    <p class="text-sm text-gray-500 mt-3">すべて税込表示です。お客様の状況に合わせてカスタマイズも可能です。</p>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-6 mb-10">
+
+    <article class="card p-8 text-center">
+      <h3 class="font-bold text-lg mb-2">ライトプラン</h3>
+      <p class="text-3xl font-bold text-blue-600 mb-1">¥55,000</p>
+      <p class="text-xs text-gray-400 mb-6">〜（税込）</p>
+      <ul class="text-sm text-gray-600 space-y-2 text-left mb-6">
+        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-blue-400 mt-0.5"></i>5ページまで</li>
+        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-blue-400 mt-0.5"></i>スマホ対応</li>
+        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-blue-400 mt-0.5"></i>問い合わせフォーム</li>
+        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-blue-400 mt-0.5"></i>Google マップ設置</li>
+      </ul>
+      <a href="#contact" class="block text-center text-sm text-blue-600 font-medium hover:underline">相談する →</a>
+    </article>
+
+    <article class="card p-8 text-center border-2 border-blue-500 relative">
+      <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1 rounded-full">人気</span>
+      <h3 class="font-bold text-lg mb-2">スタンダードプラン</h3>
+      <p class="text-3xl font-bold text-blue-600 mb-1">¥110,000</p>
+      <p class="text-xs text-gray-400 mb-6">〜（税込）</p>
+      <ul class="text-sm text-gray-600 space-y-2 text-left mb-6">
+        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-blue-400 mt-0.5"></i>10ページまで</li>
+        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-blue-400 mt-0.5"></i>ライトプランの全内容</li>
+        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-blue-400 mt-0.5"></i>ブログ・お知らせ機能</li>
+        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-blue-400 mt-0.5"></i>SEO 基本設定</li>
+        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-blue-400 mt-0.5"></i>アクセス解析設置</li>
+      </ul>
+      <a href="#contact" class="block text-center text-sm text-blue-600 font-medium hover:underline">相談する →</a>
+    </article>
+
+    <article class="card p-8 text-center">
+      <h3 class="font-bold text-lg mb-2">運用サポート</h3>
+      <p class="text-3xl font-bold text-blue-600 mb-1">¥5,500</p>
+      <p class="text-xs text-gray-400 mb-6">/月（税込）〜</p>
+      <ul class="text-sm text-gray-600 space-y-2 text-left mb-6">
+        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-blue-400 mt-0.5"></i>月2回までの更新代行</li>
+        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-blue-400 mt-0.5"></i>セキュリティ管理</li>
+        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-blue-400 mt-0.5"></i>メール相談対応</li>
+        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-blue-400 mt-0.5"></i>バックアップ</li>
+      </ul>
+      <a href="#contact" class="block text-center text-sm text-blue-600 font-medium hover:underline">相談する →</a>
+    </article>
+
+  </div>
+  <p class="text-center text-sm text-gray-500">ページ数・機能によってお見積もりが変わります。まずはお気軽にご相談ください。</p>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="py-24 bg-gray-50 border-t border-gray-100" aria-labelledby="contact-h">
+  <div class="max-w-xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <span class="section-label">Contact</span>
+      <h2 id="contact-h" class="serif text-3xl md:text-4xl font-bold mt-2">お問い合わせ</h2>
+      <p class="text-sm text-gray-500 mt-3">お見積もり・ご相談は無料です。お気軽にご連絡ください。</p>
+    </div>
+
+    <div class="card p-8 md:p-12 shadow-md">
+      <form
+        id="contact-form"
+        action="https://formspree.io/f/YOUR_FORM_ID"
+        method="POST"
+        class="space-y-5"
+        novalidate>
+
+        <div>
+          <label for="f-name" class="block text-sm font-medium text-gray-700 mb-1">お名前 <span class="text-red-500">*</span></label>
+          <input type="text" id="f-name" name="name" required autocomplete="name"
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition"
+            placeholder="山田 太郎">
+        </div>
+
+        <div>
+          <label for="f-email" class="block text-sm font-medium text-gray-700 mb-1">メールアドレス <span class="text-red-500">*</span></label>
+          <input type="email" id="f-email" name="email" required autocomplete="email"
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition"
+            placeholder="example@email.com">
+        </div>
+
+        <div>
+          <label for="f-type" class="block text-sm font-medium text-gray-700 mb-1">ご相談内容</label>
+          <select id="f-type" name="inquiry_type"
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent bg-white transition">
+            <option value="">選択してください</option>
+            <option>新規ホームページ制作</option>
+            <option>リニューアル・改修</option>
+            <option>ネットショップ構築</option>
+            <option>運用サポート</option>
+            <option>その他</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="f-msg" class="block text-sm font-medium text-gray-700 mb-1">メッセージ <span class="text-red-500">*</span></label>
+          <textarea id="f-msg" name="message" rows="5" required
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition resize-none"
+            placeholder="ご用件をご自由にお書きください。"></textarea>
+        </div>
+
+        <button type="submit"
+          class="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-colors text-sm">
+          <span id="submit-label">送信する</span>
+        </button>
+        <p id="form-status" class="text-center text-sm mt-2" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="py-10 text-center" style="background:#1e3a5f">
+  <p class="text-blue-200 text-xs tracking-widest">© <span id="year"></span> YOUR NAME — Web Design &amp; Development</p>
+</footer>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+(() => {
+  'use strict';
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const toggle = document.getElementById('nav-toggle');
+  const nav    = document.getElementById('mobile-nav');
+  const links  = nav.querySelectorAll('[data-nav]');
+
+  const open  = () => { nav.classList.add('open');    nav.setAttribute('aria-hidden','false'); toggle.setAttribute('aria-expanded','true');  toggle.setAttribute('aria-label','メニューを閉じる'); };
+  const close = () => { nav.classList.remove('open'); nav.setAttribute('aria-hidden','true');  toggle.setAttribute('aria-expanded','false'); toggle.setAttribute('aria-label','メニューを開く'); };
+
+  toggle.addEventListener('click', () => nav.classList.contains('open') ? close() : open());
+  links.forEach(l => l.addEventListener('click', close));
+  document.addEventListener('keydown', e => e.key === 'Escape' && close());
+
+  const form   = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+  const label  = document.getElementById('submit-label');
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    label.textContent = '送信中...';
+    status.textContent = '';
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      });
+      if (res.ok) {
+        form.reset();
+        status.textContent = '✓ 送信しました。2〜3営業日以内にご返信します。';
+        status.className = 'text-center text-sm mt-2 text-green-600';
+      } else { throw new Error(); }
+    } catch {
+      status.textContent = '送信に失敗しました。時間をおいて再度お試しください。';
+      status.className = 'text-center text-sm mt-2 text-red-500';
+    }
+    label.textContent = '送信する';
+  });
+})();
+</script>
+
+</body>
+</html>
