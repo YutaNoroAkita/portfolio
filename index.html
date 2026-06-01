@@ -405,10 +405,13 @@
     <div class="card p-8 md:p-12 shadow-md">
       <form
         id="contact-form"
-        action="https://formspree.io/f/YOUR_FORM_ID"
+        action="https://api.web3forms.com/submit"
         method="POST"
         class="space-y-5"
         novalidate>
+
+        <input type="hidden" name="access_key" value="ff74234b-dc8b-4a5c-81f9-6dabc726e537">
+        <input type="hidden" name="subject" value="ポートフォリオサイトからのお問い合わせ">
 
         <div>
           <label for="f-name" class="block text-sm font-medium text-gray-700 mb-1">お名前 <span class="text-red-500">*</span></label>
